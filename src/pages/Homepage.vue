@@ -1,9 +1,5 @@
 <template>
-    <div class="homepage">
-        <div class="header">
-            <div class="heading"></div>
-        </div>
-    </div>
+    <div class="homepage"></div>
 </template>
 
 <script>
@@ -13,9 +9,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.heading {
-    height: 55px;
-    width: 100%;
-    background-color: #3a42af;
-}
 </style>
