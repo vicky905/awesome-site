@@ -1,29 +1,34 @@
 <template>
     <div class="aboutpage">
-        <div class="headings">
-            <h1
-                class="heading"
-            >If you are looking for the future we have good news, you have just found it</h1>
-        </div>
-        <h3 class="heading moto">Repetition. Is. The. Best. Teacher.</h3>
-        <p
-            class="moto-paragraph"
-        >We in Javalearn strongly believe that whatever comes to you is exactly what you earn.We do not only teach a certain skill, we create life-changing habits</p>
-        <div>
-            <div class="path">
-                <p
-                    class="button-paragraph"
-                >Do you want to take the needed steps for life-changing experince?</p>
+        <div class="shell">
+            <div class="headings">
+                <h1
+                    class="heading"
+                >If you are looking for the future we have good news, you have just found it</h1>
+            </div>
+            <div class="position">
                 <div class="button-footprints">
-                    <button class="button" @click="bounce = !bounce">Yes, of course</button>
-                    <transition name="bounce">
-                        <div v-if="bounce" class="images">
-                            <img class="arrow-1 arrows" src="../assets/white-arrow.png" />
-                            <img class="footprints" src="../assets/footprints1.png" />
-                            <img class="arrow-2 arrows" src="../assets/white-arrow.png" />
-                            <img class="learning-js-img" src="../assets/js.jpg" />
+                    <div class="text">
+                        <p
+                            class="moto-paragraph"
+                        >Do you want to take the needed steps for life-changing experience?</p>
+                    </div>
+                    <div class="tutorial">
+                        <div
+                            class="tutorial__body"
+                            :class="{ 'tutorial__body--background': bounce }"
+                        >
+                            <button class="button" @click="bounce = !bounce">Yes, of course</button>
+                            <transition name="bounce">
+                                <div v-if="bounce" class="images">
+                                    <div class="background">
+                                        <img class="footprints" src="../assets/footprints1.png" />
+                                        <img class="learning-js-img" src="../assets/js.jpg" />
+                                    </div>
+                                </div>
+                            </transition>
                         </div>
-                    </transition>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,73 +57,76 @@ export default {
 
 .heading,
 .moto-paragraph {
-    font: Helvetica;
-    color: #3a42af;
+    color: azure;
+    font-size: 50px;
 }
 
 .moto,
 .moto-paragraph {
-    padding-left: 100px;
     width: 300px;
+    font-size: 55px;
 }
 
 .footprints {
-    width: 200px;
-    height: 50px;
-}
-
-.path {
-    display: flex;
+    width: 120px;
+    height: auto;
+    padding-top: 25px;
+    padding-left: 150px;
 }
 
 .button-footprints {
     display: flex;
-    flex-direction: column;
-
-    margin-left: 100px;
-    width: 100px;
 }
 
-.button-paragraph {
-    margin-left: 30px;
-    width: 300px;
-    padding-left: 70px;
-}
 .button {
-    margin-bottom: 20px;
+    margin-top: 70px;
+    border: none;
+    background-color: #f5d363;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .images {
+    position: absolute;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    left: 0;
+    top: 100px;
 }
 
 .arrows {
     width: 50px;
-    height: 50px;
+    height: auto;
 }
 
 .arrow-1 {
     margin-right: 20px;
 }
 
-.arrow-2 {
-    margin-left: 20px;
-    margin-right: 50px;
+.learning-js-img {
+    width: 490px;
+    height: auto;
+
+    margin: 0 auto;
 }
 
-.learning-js-img {
-    width: 500px;
-    height: 300px;
-    padding-right: 50px;
+.button-foot {
+    position: absolute;
 }
 
 .bounce-enter-active {
-    animation: bounce-in 0.5s;
+    animation: bounce-in 1s;
 }
 
 .bounce-enter-leave {
-    animation: bounce-in 0.5s reverse;
+    animation: bounce-in 1s reverse;
 }
 
 @keyframes bounce-in {
@@ -131,5 +139,31 @@ export default {
     100% {
         transform: scale(1);
     }
+}
+
+.text {
+    display: flex;
+}
+
+.tutorial {
+    position: relative;
+
+    display: flex;
+}
+
+.tutorial .background {
+    margin-left: 320px;
+    position: relative;
+}
+
+.background {
+    background-color: rgba(245, 211, 99, 0.9);
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10%;
+    padding: 30px 30px;
+    animation-duration: 3s;
 }
 </style>
