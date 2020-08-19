@@ -30,8 +30,8 @@ Vue.config.productionTip = false
 
 const router = new Router({
   routes,
-  mode: 'history'
-
+  mode: 'history',
+  base: '/awesome-site/'
 })
 
 Vue.use(Router);
