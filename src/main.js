@@ -4,7 +4,7 @@ import contacts from './pages/contacts.vue'
 import Homepage from './pages/Homepage.vue'
 import Aboutpage from './pages/Aboutpage.vue'
 
-import Routemaina from 'vue-router'
+import Router from 'vue-router'
 const routes = [
   {
     name: 'contacts',
@@ -28,13 +28,13 @@ const routes = [
 ];
 Vue.config.productionTip = false
 
-const router = new Routemaina({
+const router = new Router({
   routes,
   mode: 'history'
 
 })
 
-Vue.use(Routemaina);
+Vue.use(Router);
 
 new Vue({
   el: '#app',
