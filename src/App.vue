@@ -1,6 +1,6 @@
 <template>
-    <div class="main" id="app">
-        <div class="header">
+    <div class="main" :class="{ 'main-home': $route.name === 'Home' }" id="app">
+        <div @click="clicked = !clicked" class="header">
             <router-link class="page-link home-link" :to="{name:'Home'}"></router-link>
             <router-link class="page-link" :to="{name:'About'}">About Us</router-link>
             <router-link class="page-link" :to="{name:'contacts'}">Contacts</router-link>
@@ -14,6 +14,12 @@
 <script>
 export default {
   name: 'App',
+
+data(){
+    return{
+        clicked:false
+    }
+},
 
   computed: {
       canShowFooter() {
@@ -47,6 +53,11 @@ body {
     justify-content: space-between;
     display: flex;
 }
+
+.main-home {
+    justify-content: flex-start;
+}
+
 .header {
     height: 55px;
     width: 100%;

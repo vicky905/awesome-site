@@ -14,17 +14,22 @@
                     <textarea class="input textarea" placeholder="Your Message is important to us"></textarea>
                     <button class="input submit-button" @click="onClick = !onClick">Submit</button>
                 </div>
-                <transition name="submitted">
-                    <transition name="onClick">
-                        <div class="photos" v-if="onClick">
-                            <img class="done-img" src="../assets/checkmark.png" />
-                            <div v-if="submitted">
-                                <img class="foot-img" src="../assets/footprints2.png" />
+                <transition
+                    name="bounce"
+                    :duration="600"
+                    @after-enter="triggerFeetAnimation = true"
+                >
+                    <div class="photos" v-if="onClick">
+                        <img class="done-img" src="../assets/checkmark.png" />
+
+                        <transition name="fade">
+                            <div v-if="triggerFeetAnimation">
                                 <img class="foot-img" src="../assets/footprints2.png" />
                             </div>
-                            <img class="operator-img" src="../assets/operator.png" />
-                        </div>
-                    </transition>
+                        </transition>
+
+                        <img class="operator-img" src="../assets/operator.png" />
+                    </div>
                 </transition>
             </div>
         </div>
@@ -37,16 +42,10 @@ export default {
   data() {
     return {
       onClick: false,
-      submitted:false,
-      
+      triggerFeetAnimation: false
     }
   },
-  
- 
-  }
-
-
-
+}
 </script>
 
 <style>
@@ -101,13 +100,9 @@ export default {
 }
 
 .operator-img {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
     height: 270px;
     width: auto;
     display: block;
-    margin-left: auto;
 }
 
 .input-df {
@@ -117,45 +112,12 @@ export default {
 
 .done-img {
     position: relative;
-    height: 290px;
+    height: 270px;
     width: auto;
 }
 
-.onClick-enter-active {
-    animation: bounce-in 0.4s;
-}
-
-.onClick-enter-active {
-    animation: bounce-in 0.4s reverse;
-}
-
-@keyframes onClick {
-    from {
-        top: 0px;
-    }
-    to {
-        top: 200px;
-    }
-}
-
-.submitted-enter-active {
-    animation: bounce-in 0.4s;
-}
-
-.submitted-enter-active {
-    animation: bounce-in 0.4s reverse;
-}
-
-@keyframes submitted {
-    from {
-        top: 0px;
-    }
-    to {
-        top: 200px;
-    }
-}
 .foot-img {
-    height: 300px;
+    height: 250px;
     width: auto;
 }
 
@@ -163,5 +125,15 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>
