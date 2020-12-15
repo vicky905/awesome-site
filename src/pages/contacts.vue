@@ -2,17 +2,43 @@
     <div class="contacts">
         <div class="heading">
             <div class="contacts">
-                <h1 v-if="onClick === false">Contacts have never been that easy</h1>
-                <h1 v-if="onClick === true">We are looking forward to giving you a message</h1>
+                <h1 v-if="onClick === false">
+                    Contacts have never been that easy
+                </h1>
+                <h1 v-if="onClick === true">
+                    We are looking forward to giving you a message
+                </h1>
             </div>
         </div>
         <div class="remove">
             <div class="input">
                 <div v-if="!onClick" class="input-df">
-                    <input class="input input-name" placeholder="Your Name" type="text" />
-                    <input class="input input-email" placeholder="Your Email" type="text" />
-                    <textarea class="input textarea" placeholder="Your Message is important to us"></textarea>
-                    <button class="input submit-button" @click="onClick = !onClick">Submit</button>
+                    <div>
+                        <input
+                            class="input input-name"
+                            placeholder="Your Name"
+                            type="text"
+                        />
+                        <input
+                            class="input input-email"
+                            placeholder="Your Email"
+                            type="text"
+                        />
+                        <textarea
+                            class="input textarea"
+                            placeholder="Your Message is important to us"
+                        ></textarea>
+
+                        <button
+                            class="input submit-button"
+                            @click="onClick = !onClick"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                    <div>
+                        <img class="operator" src="../assets/phone.jpg" />
+                    </div>
                 </div>
                 <transition
                     name="bounce"
@@ -24,11 +50,17 @@
 
                         <transition name="fade">
                             <div v-if="triggerFeetAnimation">
-                                <img class="foot-img" src="../assets/footprints2.png" />
+                                <img
+                                    class="foot-img"
+                                    src="../assets/footprints2.png"
+                                />
                             </div>
                         </transition>
 
-                        <img class="operator-img" src="../assets/operator.png" />
+                        <img
+                            class="operator-img"
+                            src="../assets/operator.png"
+                        />
                     </div>
                 </transition>
             </div>
@@ -49,15 +81,9 @@ export default {
 </script>
 
 <style>
-.heading {
-    display: flex;
-    flex-direction: column;
-    padding-left: 50px;
-    justify-content: flex-start;
-}
-
 .contacts {
     font-size: 35%;
+    text-align: center;
 }
 
 .input {
@@ -69,7 +95,6 @@ export default {
 
 .input-email {
     border: 3px solid rgba(245, 211, 99);
-    display: block;
 
     margin-top: 30px;
     margin-bottom: 30px;
@@ -107,7 +132,8 @@ export default {
 
 .input-df {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .done-img {
@@ -135,5 +161,10 @@ export default {
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
+}
+
+.operator {
+    height: 300px;
+    width: auto;
 }
 </style>

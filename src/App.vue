@@ -1,9 +1,23 @@
 <template>
-    <div class="main" :class="{ 'main-home': $route.name === 'Home' }" id="app">
-        <div @click="clicked = !clicked" class="header">
-            <router-link class="page-link home-link" :to="{name:'Home'}"></router-link>
-            <router-link class="page-link" :to="{name:'About'}">About Us</router-link>
-            <router-link class="page-link" :to="{name:'contacts'}">Contacts</router-link>
+    <div
+        class="main"
+        :class="{
+            'main-home': $route.name === 'Home',
+            'main-about': isAboutPage,
+        }"
+        id="app"
+    >
+        <div class="header">
+            <router-link
+                class="page-link home-link"
+                :to="{ name: 'Home' }"
+            ></router-link>
+            <router-link class="page-link" :to="{ name: 'About' }"
+                >About Us</router-link
+            >
+            <router-link class="page-link" :to="{ name: 'contacts' }"
+                >Contacts</router-link
+            >
         </div>
 
         <router-view />
@@ -28,6 +42,15 @@ data(){
           }
 
           return false;
+        
+      },
+      isAboutPage() {
+          if (this.$route.name === 'About') {
+              return true;
+          }
+
+          return false;
+        
       }
   },
 
@@ -92,5 +115,9 @@ body {
     height: 150px;
     width: auto;
     background-color: #f5d363;
+}
+
+.main-about {
+    justify-content: flex-start;
 }
 </style>
