@@ -93,7 +93,7 @@ body {
     padding-right: 50px;
     color: #f5d363;
     font-size: 20px;
-    font-family: Helvetica;
+    font-family: Helvetica, 'Arial',serif;
     text-decoration: none;
 }
 

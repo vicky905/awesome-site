@@ -42,7 +42,7 @@
                 </div>
                 <transition
                     name="bounce"
-                    :duration="600"
+                    :duration="1000"
                     @after-enter="triggerFeetAnimation = true"
                 >
                     <div class="photos" v-if="onClick">
@@ -120,7 +120,6 @@ export default {
     padding: 15px 15px;
     font-size: 16px;
     display: block;
-
     margin-left: 0 auto;
 }
 
@@ -128,11 +127,13 @@ export default {
     height: 270px;
     width: auto;
     display: block;
+    margin-top: 50px;
 }
 
 .input-df {
     display: flex;
     justify-content: space-between;
+
     width: 100%;
 }
 
@@ -140,6 +141,7 @@ export default {
     position: relative;
     height: 270px;
     width: auto;
+    margin-bottom: 100px;
 }
 
 .foot-img {
@@ -166,5 +168,41 @@ export default {
 .operator {
     height: 300px;
     width: auto;
+}
+
+@media (max-width: 1023px) {
+    .input-df {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .operator {
+        max-width: 70%;
+    }
+
+    .photos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .heading {
+        font-size: 10px;
+    }
+    .button-footprints {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-footprints .moto-paragraph {
+        font-size: 10px;
+    }
+    .button-footprints .button2 {
+        max-width: 50%;
+        margin: 0 auto;
+    }
 }
 </style>
