@@ -2,21 +2,47 @@
     <div class="contacts">
         <div class="heading">
             <div class="contacts">
-                <h1 v-if="onClick === false">Contacts have never been that easy</h1>
-                <h1 v-if="onClick === true">We are looking forward to giving you a message</h1>
+                <h1 v-if="onClick === false">
+                    Contacts have never been that easy
+                </h1>
+                <h1 v-if="onClick === true">
+                    We are looking forward to giving you a message
+                </h1>
             </div>
         </div>
         <div class="remove">
             <div class="input">
                 <div v-if="!onClick" class="input-df">
-                    <input class="input input-name" placeholder="Your Name" type="text" />
-                    <input class="input input-email" placeholder="Your Email" type="text" />
-                    <textarea class="input textarea" placeholder="Your Message is important to us"></textarea>
-                    <button class="input submit-button" @click="onClick = !onClick">Submit</button>
+                    <div>
+                        <input
+                            class="input input-name"
+                            placeholder="Your Name"
+                            type="text"
+                        />
+                        <input
+                            class="input input-email"
+                            placeholder="Your Email"
+                            type="text"
+                        />
+                        <textarea
+                            class="input textarea"
+                            placeholder="Your Message is important to us"
+                        ></textarea>
+
+                        <button
+                            class="input submit-button"
+                            @click="onClick = !onClick"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                    <div>
+                        <img class="operator" src="../assets/phone.jpg" />
+                    </div>
                 </div>
                 <transition
                     name="bounce"
-                    :duration="600"
+                    :duration="1000"
                     @after-enter="triggerFeetAnimation = true"
                 >
                     <div class="photos" v-if="onClick">
@@ -24,11 +50,17 @@
 
                         <transition name="fade">
                             <div v-if="triggerFeetAnimation">
-                                <img class="foot-img" src="../assets/footprints2.png" />
+                                <img
+                                    class="foot-img"
+                                    src="../assets/footprints2.png"
+                                />
                             </div>
                         </transition>
 
-                        <img class="operator-img" src="../assets/operator.png" />
+                        <img
+                            class="operator-img"
+                            src="../assets/operator.png"
+                        />
                     </div>
                 </transition>
             </div>
@@ -49,15 +81,9 @@ export default {
 </script>
 
 <style>
-.heading {
-    display: flex;
-    flex-direction: column;
-    padding-left: 50px;
-    justify-content: flex-start;
-}
-
 .contacts {
     font-size: 35%;
+    text-align: center;
 }
 
 .input {
@@ -69,7 +95,6 @@ export default {
 
 .input-email {
     border: 3px solid rgba(245, 211, 99);
-    display: block;
 
     margin-top: 30px;
     margin-bottom: 30px;
@@ -95,7 +120,6 @@ export default {
     padding: 15px 15px;
     font-size: 16px;
     display: block;
-
     margin-left: 0 auto;
 }
 
@@ -103,17 +127,21 @@ export default {
     height: 270px;
     width: auto;
     display: block;
+    margin-top: 50px;
 }
 
 .input-df {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
 }
 
 .done-img {
     position: relative;
     height: 270px;
     width: auto;
+    margin-bottom: 100px;
 }
 
 .foot-img {
@@ -135,5 +163,46 @@ export default {
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
+}
+
+.operator {
+    height: 300px;
+    width: auto;
+}
+
+@media (max-width: 1023px) {
+    .input-df {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .operator {
+        max-width: 70%;
+    }
+
+    .photos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .heading {
+        font-size: 10px;
+    }
+    .button-footprints {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-footprints .moto-paragraph {
+        font-size: 10px;
+    }
+    .button-footprints .button2 {
+        max-width: 50%;
+        margin: 0 auto;
+    }
 }
 </style>

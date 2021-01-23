@@ -2,16 +2,18 @@
     <div class="aboutpage">
         <div class="shell">
             <div class="headings">
-                <h1
-                    class="heading"
-                >If you are looking for the future we have good news, you have just found it</h1>
+                <h1 class="heading">
+                    If you are looking for the future we have good news, you
+                    have just found it
+                </h1>
             </div>
             <div class="position">
                 <div class="button-footprints">
                     <div class="text">
-                        <p
-                            class="moto-paragraph"
-                        >Do you want to take the needed steps for life-changing experience?</p>
+                        <p class="moto-paragraph">
+                            Do you want to take the needed steps for
+                            life-changing experience?
+                        </p>
                     </div>
                     <div class="tutorial">
                         <div
@@ -19,12 +21,23 @@
                             :class="{ 'tutorial__body--background': bounce }"
                         >
                             <div class="button2">
-                                <button class="button" @click="bounce = !bounce">Yes, of course</button>
+                                <button
+                                    class="button"
+                                    @click="bounce = !bounce"
+                                >
+                                    Yes, of course
+                                </button>
                                 <transition name="bounce">
                                     <div v-if="bounce" class="images">
                                         <div class="background">
-                                            <img class="footprints" src="../assets/footprints1.png" />
-                                            <img class="armbands" src="../assets/armband.png" />
+                                            <img
+                                                class="footprints"
+                                                src="../assets/footprints1.png"
+                                            />
+                                            <img
+                                                class="armbands"
+                                                src="../assets/armband.png"
+                                            />
                                         </div>
                                     </div>
                                 </transition>
@@ -142,7 +155,6 @@ export default {
 .background {
     position: relative;
     background-color: rgba(245, 211, 99, 0.9);
-    padding: 5px 5px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -158,5 +170,41 @@ export default {
 
 .tutorial .tutorial__body {
     width: 100%;
+}
+
+@media (max-width: 1023px) {
+    .heading {
+        font-size: 30px;
+    }
+    .button-footprints {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-footprints .moto-paragraph {
+        font-size: 30px;
+    }
+    .button-footprints .button2 {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .heading {
+        font-size: 20px;
+    }
+    .button-footprints {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-footprints .moto-paragraph {
+        font-size: 20px;
+    }
+    .button-footprints .button2 {
+        max-width: 70%;
+        margin: 0 auto;
+    }
 }
 </style>

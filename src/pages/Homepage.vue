@@ -19,6 +19,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .earth-img {
     height: 600px;
     width: auto;
@@ -47,6 +53,52 @@ export default {
 
     100% {
         transform: translateY(0%);
+    }
+}
+
+@media (max-width: 1023px) {
+    .heading-earth {
+        font-size: 30px;
+    }
+
+    .df-imgs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .earth-img {
+        max-width: 90%;
+    }
+
+    .armband {
+        max-width: 90%;
+    }
+
+    .footsteps {
+        transform: rotate(45deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .heading-earth {
+        font-size: 20px;
+    }
+
+    .df-imgs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .earth-img {
+        max-width: 80%;
+    }
+
+    .armband {
+        max-width: 80%;
+    }
+
+    .footsteps {
+        transform: rotate(45deg);
     }
 }
 </style>
