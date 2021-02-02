@@ -15,16 +15,19 @@
                 <div v-if="!onClick" class="input-df">
                     <div>
                         <input
+                            v-model="name"
                             class="input input-name"
                             placeholder="Your Name"
                             type="text"
                         />
                         <input
+                            v-model="email"
                             class="input input-email"
                             placeholder="Your Email"
                             type="text"
                         />
                         <textarea
+                            v-model="textarea"
                             class="input textarea"
                             placeholder="Your Message is important to us"
                         ></textarea>
@@ -74,10 +77,30 @@ export default {
   data() {
     return {
       onClick: false,
+      email:'',
+      name:'',
+      textarea:'',
       triggerFeetAnimation: false
     }
   },
-}
+ mounted() {
+    if (localStorage.name || localStorage.email || localStorage.textarea) {
+      this.name = localStorage.name;
+     this.email = localStorage.email;
+       this.textarea = localStorage.textarea;
+   }},watch:{
+    name(UserData) {
+      localStorage.name = UserData;
+      
+    },
+    email(UserData) {
+      localStorage.email = UserData;
+      
+  },
+    textarea(UserData) {
+      localStorage.textarea = UserData;
+      }}}
+
 </script>
 
 <style>
